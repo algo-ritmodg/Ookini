@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ookini | Café de Especialidad</title>
+    
+    <!-- Fuentes Elegantes y Minimalistas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ookini-bg': '#F7F6F2', // Fondo pastel cálido
+                        'ookini-green': '#8F9E8B', // Verde grisáceo / Salvia
+                        'ookini-green-dark': '#6B7A68', // Verde más oscuro para botones
+                        'ookini-text': '#333A33', // Texto oscuro pero no negro puro
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .hide { display: none; }
+    </style>
+</head>
+<body class="bg-ookini-bg text-ookini-text font-sans antialiased">
+
+    <!-- Navegación -->
+    <nav class="w-full py-6 px-8 md:px-16 flex justify-between items-center fixed top-0 bg-ookini-bg/90 backdrop-blur-sm z-50">
+        <a href="#" class="font-serif text-2xl font-medium tracking-wide text-ookini-green-dark">Ookini.</a>
+        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest text-gray-500">
+            <a href="#historia" class="hover:text-ookini-green-dark transition-colors">Historia</a>
+            <a href="#menu" class="hover:text-ookini-green-dark transition-colors">Menú</a>
+            <a href="#reserva" class="hover:text-ookini-green-dark transition-colors">Reservas</a>
+        </div>
+        <!-- Menú móvil (simplificado) -->
+        <div class="md:hidden text-ookini-green-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+        <span class="text-ookini-green tracking-widest uppercase text-xs mb-4">Café de Especialidad</span>
+        <h1 class="font-serif text-5xl md:text-7xl mb-6 text-ookini-text max-w-4xl leading-tight">
+            El arte de la pausa y la gratitud.
+        </h1>
+        <p class="max-w-xl text-gray-500 font-light mb-10 leading-relaxed text-lg" id="historia">
+            "Ookini" significa "gracias" en Kansai, la región de Japón donde está Kioto. 
+            Esa misma ciudad dio origen a nuestro método insignia. Aquí el café no se apura, se vive.
+        </p>
+        <a href="#reserva" class="bg-ookini-green text-white px-8 py-3 rounded-full hover:bg-ookini-green-dark transition-all duration-300 shadow-md hover:shadow-lg">
+            Hacer una reserva
+        </a>
+    </header>
+
+    <!-- Menú Section -->
+    <section id="menu" class="py-24 px-6 md:px-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-4xl mb-4 text-ookini-green-dark">Nuestro Menú</h2>
+                <p class="text-gray-500 font-light max-w-2xl mx-auto">Dos formas de disfrutar nuestro café: sin prisas y al instante, o preparaciones complejas que requieren tiempo y dedicación.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Walk-in -->
+                <div class="bg-ookini-bg p-10 rounded-3xl border border-gray-100">
+                    <span class="inline-block bg-white text-gray-600 text-xs px-3 py-1 rounded-full mb-6 uppercase tracking-wider border border-gray-200">Walk-in / Sin Reserva</span>
+                    <h3 class="font-serif text-2xl mb-2">Prensa Francesa</h3>
+                    <p class="text-gray-500 font-light mb-6 text-sm">Disponible todo el día hasta el cierre. Sin límite por persona. Un clásico confiable e intenso.</p>
+                    <div class="flex justify-between items-center border-b border-gray-200 pb-4">
+                        <span class="font-medium text-lg">Taza</span>
+                        <span class="font-serif text-xl text-ookini-green-dark">$3</span>
+                    </div>
+                </div>
+
+                <!-- Con Reserva -->
+                <div class="bg-ookini-green text-white p-10 rounded-3xl shadow-lg relative overflow-hidden">
+                    <!-- Decoración fondo -->
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-white opacity-5 rounded-full blur-2xl"></div>
+                    
+                    <span class="inline-block bg-white/20 text-white text-xs px-3 py-1 rounded-full mb-6 uppercase tracking-wider backdrop-blur-sm">Con Reserva</span>
+                    <h3 class="font-serif text-2xl mb-2">Preparaciones Especiales</h3>
+                    <p class="text-white/80 font-light mb-6 text-sm">Métodos de filtrado lento. Máximo 50 tazas al día en el local. (Max. 2 por persona).</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="font-light">V60</span>
+                            <span class="font-serif text-lg">$5</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="font-light">Kyoto Drip</span>
+                            <span class="font-serif text-lg">$7</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-white/20 pb-3">
+                            <span class="font-light">Siphon</span>
+                            <span class="font-serif text-lg">$8</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 pt-6 border-t border-white/30">
+                        <h4 class="font-serif text-xl mb-1">Cata Semanal</h4>
+                        <p class="text-white/70 text-xs mb-3">Una vez por semana. 8 cupos disponibles. Varias degustaciones.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-light">Por persona</span>
+                            <span class="font-serif text-lg">$25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservas Formulario -->
+    <section id="reserva" class="py-24 px-6 md:px-16 bg-ookini-bg">
+        <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-gray-100">
+            <h2 class="font-serif text-3xl mb-2 text-center text-ookini-text">Reserva tu Experiencia</h2>
+            <p class="text-center text-gray-500 font-light mb-8 text-sm">Asegura tu taza especial o tu lugar en nuestra cata semanal.</p>
+            
+            <!-- Dashboard de disponibilidad -->
+            <div class="flex justify-center gap-6 mb-8 text-xs font-medium text-gray-500 bg-gray-50 py-3 rounded-xl">
+                <div>Tazas Especiales de hoy: <span id="tazas-disponibles" class="text-ookini-green-dark text-base font-bold ml-1">50</span></div>
+                <div class="w-px bg-gray-300"></div>
+                <div>Cupos Cata Semanal: <span id="cupos-cata" class="text-ookini-green-dark text-base font-bold ml-1">8</span></div>
+            </div>
+
+            <form id="reservationForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1" for="name">Nombre de quien reserva</label>
+                    <input type="text" id="name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-ookini-green transition-all" placeholder="Ej. Taro Yamada">
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1" for="type">¿Qué deseas reservar?</label>
+                        <select id="type" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-ookini-green transition-all text-gray-700">
+                            <option value="v60">Método V60 ($5)</option>
+                            <option value="kyoto">Kyoto Drip ($7)</option>
+                            <option value="siphon">Siphon ($8)</option>
+                            <option value="cata">Cata Semanal ($25)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1" for="qty">Cantidad (Personas/Tazas)</label>
+                        <input type="number" id="qty" min="1" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-ookini-green transition-all" value="1">
+                    </div>
+                </div>
+
+                <!-- Contenedor para mensajes de error/éxito -->
+                <div id="messageBox" class="p-4 rounded-xl text-sm hide"></div>
+
+                <button type="submit" class="w-full bg-ookini-text text-white font-medium py-4 rounded-xl hover:bg-black transition-colors shadow-md">
+                    Confirmar Reserva
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-16 pb-8 px-6 md:px-16 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 mb-12">
+            <div>
+                <span class="font-serif text-2xl font-medium text-ookini-green-dark block mb-4">Ookini.</span>
+                <p class="text-gray-400 text-sm font-light">El arte de la pausa y la gratitud. Café de especialidad inspirado en la tranquilidad de Kioto.</p>
+            </div>
+            <div>
+                <h4 class="font-medium text-gray-800 mb-4">Horario y Ubicación</h4>
+                <p class="text-gray-500 text-sm font-light mb-2">Lunes a Domingo</p>
+                <p class="text-gray-500 text-sm font-light mb-4">8:00 a.m. - 8:00 p.m.</p>
+                <p class="text-gray-500 text-sm font-light">123 Calle del Café<br>Ciudad, País</p>
+            </div>
+            <div>
+                <h4 class="font-medium text-gray-800 mb-4">Nuestras Redes</h4>
+                <p class="text-gray-400 text-sm font-light mb-4">Síguenos para conocer nuestros granos de la semana y eventos.</p>
+                <div class="flex gap-4 text-gray-400">
+                    <!-- Iconos listos para cuando se creen las redes -->
+                    <a href="#" class="hover:text-ookini-green-dark transition-colors" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="hover:text-ookini-green-dark transition-colors" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="hover:text-ookini-green-dark transition-colors" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-xs text-gray-400 font-light pt-8 border-t border-gray-100">
+            &copy; 2026 Ookini Café de Especialidad. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Lógica de Negocio (JavaScript) -->
+    <script>
+        // Variables de estado global (Reglas del Negocio)
+        const MAX_TAZAS_ESPECIALES_DIA = 50;
+        const MAX_TAZAS_POR_PERSONA = 2;
+        const MAX_CUPOS_CATA = 8;
+
+        let tazasEspecialesVendidas = 0;
+        let cuposCataVendidos = 0;
+
+        // Elementos del DOM
+        const form = document.getElementById('reservationForm');
+        const messageBox = document.getElementById('messageBox');
+        const displayTazas = document.getElementById('tazas-disponibles');
+        const displayCata = document.getElementById('cupos-cata');
+
+        // Función para mostrar mensajes
+        function showMessage(text, type) {
+            messageBox.textContent = text;
+            messageBox.className = 'p-4 rounded-xl text-sm font-medium mb-4 transition-all duration-300';
+            
+            if (type === 'error') {
+                messageBox.classList.add('bg-red-50', 'text-red-600', 'border', 'border-red-100');
+            } else if (type === 'success') {
+                messageBox.classList.add('bg-green-50', 'text-green-700', 'border', 'border-green-200');
+            }
+            
+            messageBox.classList.remove('hide');
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                messageBox.classList.add('hide');
+            }, 5000);
+        }
+
+        // Evento principal del formulario
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+
+            const name = document.getElementById('name').value;
+            const type = document.getElementById('type').value;
+            const qty = parseInt(document.getElementById('qty').value);
+
+            // Validaciones para la CATA SEMANAL
+            if (type === 'cata') {
+                const cuposDisponibles = MAX_CUPOS_CATA - cuposCataVendidos;
+                
+                if (cuposDisponibles === 0) {
+                    showMessage('Lo sentimos, la cata semanal ya está llena (0 cupos).', 'error');
+                    return;
+                }
+                
+                if (qty > cuposDisponibles) {
+                    showMessage(`Solo quedan ${cuposDisponibles} cupos disponibles para la cata. Por favor ajusta la cantidad.`, 'error');
+                    return;
+                }
+
+                // Éxito en reserva de cata
+                cuposCataVendidos += qty;
+                displayCata.textContent = MAX_CUPOS_CATA - cuposCataVendidos;
+                showMessage(`¡Reserva exitosa, ${name}! Has asegurado ${qty} cupo(s) para la Cata Semanal.`, 'success');
+                form.reset();
+                return;
+            }
+
+            // Validaciones para TAZAS ESPECIALES (V60, Kyoto, Siphon)
+            if (type !== 'cata') {
+                // Regla 1: Máximo 2 tazas por persona
+                if (qty > MAX_TAZAS_POR_PERSONA) {
+                    showMessage(`No puedes pedir más de ${MAX_TAZAS_POR_PERSONA} tazas por persona en preparaciones especiales.`, 'error');
+                    return;
+                }
+
+                const tazasDisponibles = MAX_TAZAS_ESPECIALES_DIA - tazasEspecialesVendidas;
+
+                // Regla 2: Límite de 50 tazas diarias
+                if (tazasDisponibles === 0) {
+                    showMessage('Lo sentimos, hemos alcanzado nuestro límite de 50 tazas especiales por hoy. ¡Te esperamos mañana!', 'error');
+                    return;
+                }
+
+                if (qty > tazasDisponibles) {
+                    showMessage(`Solo nos quedan ${tazasDisponibles} tazas especiales disponibles por hoy.`, 'error');
+                    return;
+                }
+
+                // Éxito en reserva de taza especial
+                tazasEspecialesVendidas += qty;
+                displayTazas.textContent = MAX_TAZAS_ESPECIALES_DIA - tazasEspecialesVendidas;
+                
+                // Formatear nombre del método para el mensaje
+                const metodosNombres = {
+                    'v60': 'V60',
+                    'kyoto': 'Kyoto Drip',
+                    'siphon': 'Siphon'
+                };
+
+                showMessage(`¡Reserva exitosa, ${name}! Hemos preparado ${qty} taza(s) de ${metodosNombres[type]} para ti.`, 'success');
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
